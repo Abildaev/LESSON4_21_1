@@ -14,17 +14,26 @@ export default function TodoList() {
             type: "ADD_TODO",
             payload: input
         })
+
+        setInput("")
+    }
+
+    const deleteAll = () => {
+        dispatch({
+            type: "DELETE_ALL"
+        })
     }
 
     return (
         <>
             <input
+                value={input}
                 type="text"
                 placeholder="todo"
                 onChange={(event) => setInput(event.target.value)}
             />
             <button onClick={addTodo}>add todo</button>
-            <button>delete all</button>
+            <button onClick={deleteAll}>delete all</button>
             {
                 todos.length === 0
                     ?

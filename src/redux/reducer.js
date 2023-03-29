@@ -41,5 +41,9 @@ export function reducer(state = initialState, action) {
         return {...state, todos: newArr}
     }
 
+    else if(action.type === "DELETE_ALL") {
+        return {...state, todos: []}
+    }
+
     return state
 }
